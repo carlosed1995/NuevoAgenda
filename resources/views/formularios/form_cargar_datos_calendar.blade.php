@@ -15,7 +15,7 @@
                        
 
 
-
+  
        
 
 
@@ -29,11 +29,11 @@
       <th>Fecha y hora final</th>
      <th>Titulo</th>
 
-    
+     
     </thead>
     @foreach($agendas as $agen)
      @if($agen['act'])
-     @if($agen['actagend'] != 1)
+     @if($agen['actagend'] == 0 )
         <td>{{$agen->fechaIni}}</td>
         <td>{{$agen->fechaFin}}</td>
          <td>{{$agen->titulo}}</td>

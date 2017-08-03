@@ -31,7 +31,7 @@ class SolicitanteController extends Controller
      */
     public function create()
     {
-        //
+        return view('Gerencia.horarioquefunciona');
     }
 
 

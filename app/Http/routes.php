@@ -11,24 +11,11 @@
 |
 */
 
-/*
-Route::get('/', 'SolicitanteController@index');
-
-Route::get('exportar', 'SolicitanteController@exportClient');
-Route::resource('import', 'SolicitanteController');
-
-Route::get('cargar', 'SolicitanteController@upload');*/
-
-
-
-// RUTAS NUEVASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-
 
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
-//rutas
 
 Route::get('form_cargar_datos_usuarios', 'UsuariosController@form_cargar_datos_usuarios');
 
@@ -51,6 +38,8 @@ Route::get('carg','CalendarController@store');
 Route::resource('agendarcita', 'AgendarCitaController');
 
 Route::resource('confimar','ConfimarController');
+
+Route::resource('historial', 'HistorialController');
 
 Route::resource('onoff', 'ActivarController');
 

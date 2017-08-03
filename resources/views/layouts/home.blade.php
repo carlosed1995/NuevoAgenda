@@ -140,7 +140,7 @@
                 <i class="fa fa-dashboard"></i> <span>Panel de control</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="" onclick="" ><i class="fa fa-circle-o"></i>Agregar usuario </a></li>
+                <!--<li class="active"><a href="" onclick="" ><i class="fa fa-circle-o"></i>Agregar usuario </a></li>-->
                 <li class="active"><a href="{{route('listar.index')}}" onclick="" ><i class="fa fa-circle-o"></i>Listado Usuarios</a></li>
               </ul>
             </li>  
@@ -167,8 +167,12 @@
                 
               </ul>
               <ul class="treeview-menu">
-                <li class="active"><a href="{{route('confimar.index')}}" ><i class="fa fa-circle-o"></i>Confirmar Citas</a></li>
+                <li class="active"><a href="{{route('confimar.index')}}" ><i class="fa fa-circle-o"></i>Confirmar Agenda</a></li>
                 </ul>
+                <ul class="treeview-menu">
+                <li class="active"><a href="{{route('historial.index')}}" ><i class="fa fa-circle-o"></i>Historial</a></li>
+                
+              </ul>
             </li>   
 
 

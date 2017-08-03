@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Gerente;
-use Mail;
-use DB;
 
-class ConfimarController extends Controller
+use App\Gerente;
+
+class HistorialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +17,11 @@ class ConfimarController extends Controller
      */
     public function index()
     {
-        $aceptar = Gerente::paginate(10);
-        return view('formularios.aceptarAgendas')->with('aceptar', $aceptar);
+        $usuarioslist = Gerente::paginate(7);
+        return view('formularios.historial')->with('usuarioslist',$usuarioslist);
     }
 
-    /** 
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -40,12 +39,7 @@ class ConfimarController extends Controller
      */
     public function store(Request $request)
     {
-        
-
-  
-
-
-
+        //
     }
 
     /**
@@ -56,12 +50,7 @@ class ConfimarController extends Controller
      */
     public function show($id)
     {
-    
-     $rechaza = Gerente::find($id);
-     $rechaza->actagend = 0;
-     $rechaza->save();
-
-     return redirect()->back();
+        //
     }
 
     /**
@@ -72,36 +61,7 @@ class ConfimarController extends Controller
      */
     public function edit($id)
     {
-         
-     $acepta = Gerente::find($id);
-     $acepta->actagend = 2;
-     $acepta->save();
-
-     $solicitante = DB::table('gerente')
-            ->join('solicitante','solicitante.id', '=', 'gerente.idsolicitante')
-            ->where('gerente.id', '=', $id)
-           
-            ->select('solicitante.*')
-           ->get();
-     
-           foreach ($solicitante as $key) {
-               $key->rut;
-               $key->email;
-$data = array(
-    'rut'=>$key->rut, 
-   'email'=>$key->email, 
-    
-);
-    
-}
-
-
-Mail::send('email.confirmarusuario', $data , function($msj) use($data){
-    $msj->subject('Correo');
-    $msj->to($data['email']);
-});
-    
-return redirect()->back();
+        //
     }
 
     /**

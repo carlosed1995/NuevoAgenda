@@ -20,10 +20,11 @@ class GerenciaController extends Controller
     		[
     		'fechaIni'=>$request['inicio'],
     		'fechaFin'=>$request['final'],
-    		'color'=>'#00a65a',
+    		'color'=>'#24B3E7',
     		'titulo'=>$request['titulo'],
         'actcliente'=>1,
     		'act'=>1,
+            'actagend'=>0
     		]);
 
 

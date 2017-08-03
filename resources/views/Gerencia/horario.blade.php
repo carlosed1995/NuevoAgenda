@@ -97,6 +97,7 @@
     
     </thead>
     @foreach($agendas as $agen)
+  
 
         <td>{{$agen->fechaIni}}</td>
         <td>{{$agen->fechaFin}}</td>

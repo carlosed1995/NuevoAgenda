@@ -20,7 +20,9 @@ class Gerente extends Migration
             $table->string('color')->nullable();
             $table->string('titulo')->nullable();
             $table->string('actagend')->nullable();
-             $table->string('idsolicitante')->nullable();
+            $table->string('actcliente')->nullable();
+             
+             $table->int('idsolicitante')->nullable();
             $table->timestamps();
                   });
     }

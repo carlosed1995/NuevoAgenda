@@ -31,7 +31,7 @@ class AgendarCitaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -55,17 +55,41 @@ AgendaClientM::create(
 'observaciones' => $request['observaciones'],
 
 ]
-    );
+    ); 
 
 
+   $iduser = $request['iduser'];
     $reserva  =  DB::table('gerente')
             ->where('id' ,'=', $request['idreser'])
-            ->update(array('actagend' => '1'));
+            ->update(array('actagend' => '1',
+                            'idsolicitante' => $request['iduser']));
         
 
+$solicitante = DB::table('solicitante')
+            ->join('gerente','gerente.idsolicitante', '=', 'solicitante.id')
+                        
+          
+            ->where('solicitante.id', '=', $iduser)
+            ->select('solicitante.*')
+           ->get();
 
+           foreach ($solicitante as $key) {
+               $key->rut;
+               $key->email;
+    
+$data = array(
+    'rut'=>$key->rut, 
+    'email'=>$key->email, 
+    'fechaini'=> $request['fechainicial'],
+    'fechafin'=> $request['fechafinal'],
+    'motivo1'=> $request['motivo1'],
+    'motivo2'=> $request['motivo2'],
+    'motivo3'=> $request['motivo3'],
+    'idreser'=> $request['idreser'],
+    'observaciones' => $request['observaciones']
+);
 
-
+}
 
 Mail::send('email.enviarusuario',$request->all(), function($msjs) use($request){
     $msjs->subject('Agendar Reunión');
@@ -73,7 +97,7 @@ Mail::send('email.enviarusuario',$request->all(), function($msjs) use($request){
 });
 
 
-Mail::send('email.enviar', $request->all(), function($msj){
+Mail::send('email.enviar', $data , function($msj){
     $msj->subject('Correo');
     $msj->to('laravelmailprueba@gmail.com');
 });

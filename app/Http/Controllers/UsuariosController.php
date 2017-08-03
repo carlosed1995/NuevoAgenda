@@ -73,7 +73,7 @@ class UsuariosController extends Controller {
             Excel::selectSheetsByIndex(0)->load($ruta, function($hoja) {
 		        
 		        $hoja->each(function($fila) {
-			        $usersemails=Solicitud::where("email","=",$fila->email)->first();
+			        $usersemails=Solicitud::where("rut","=",$fila->rut)->first();
 			        if(count( $usersemails)==0){
 				   
      $data = array("rut" => $fila->rut,

@@ -36,7 +36,7 @@
       @if($acepta['actagend'] == 1)   
     <div class="btn-group">
      <td>
-      <a href="{{route('confimar.store', $acepta->id)}}" onclick="return confirm('Cita Confirmada le llegara al usuario un correo electronico con la confirmacion de la cita')" class="btn btn-xs btn-default">Confirmar</a></td>
+      <a href="{{route('confimar.edit', $acepta->id)}}" onclick="return confirm('Cita Confirmada le llegara al usuario un correo electronico con la confirmacion de la cita')" class="btn btn-xs btn-default">Confirmar</a></td>
     </div>
   @else
     <div class="btn-group">
