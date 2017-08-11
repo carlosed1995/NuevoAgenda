@@ -13,16 +13,21 @@ class Gerente extends Migration
     public function up()
     {
            Schema::create('gerente', function (Blueprint $table) {
-              $table->increments('id');
+            
+ $table->increments('id');
             $table->datetime('fechaIni')->nullable();
             $table->datetime('fechaFin')->nullable();
-            $table->string('act')->nullable();
+            
             $table->string('color')->nullable();
             $table->string('titulo')->nullable();
+             $table->string('act')->nullable();
             $table->string('actagend')->nullable();
             $table->string('actcliente')->nullable();
              
-             $table->int('idsolicitante')->nullable();
+             $table->integer('idsolicitante')->nullable();
+
+
+            
             $table->timestamps();
                   });
     }

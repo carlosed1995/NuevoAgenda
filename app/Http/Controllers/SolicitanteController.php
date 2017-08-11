@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Solicitud;
+use Laracasts\Flash\Flash;
 
 
 class SolicitanteController extends Controller
@@ -99,6 +100,8 @@ class SolicitanteController extends Controller
      
       $rest->save();
       
+    Flash::success("Usuario actualizado correctamente");
+
       return redirect()->back()->with('message', 'Actualización Exitosa');
     }
 

@@ -14,8 +14,10 @@
 			<th>Fecha y Hora</th>
 			<th>Fecha y Hora</th>
 		</thead>
+
 		@foreach($usuarioslist as $usuarios)
 		@if($usuarios['actagend'] == 2)
+
 <?php
 		$solicitante = DB::table('solicitante')
             ->join('gerente','gerente.idsolicitante', '=', 'solicitante.id')
@@ -26,6 +28,7 @@
 				
 			<tbody>
 		@foreach($solicitante as $datos)
+
 		<td>{{$datos->rut}}</td>
 				<td>{{$datos->nombres}}</td>
 				<td>{{$datos->apellidopaterno}}</td>

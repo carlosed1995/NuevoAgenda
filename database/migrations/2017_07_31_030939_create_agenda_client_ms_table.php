@@ -14,8 +14,8 @@ class CreateAgendaClientMsTable extends Migration
     {
         Schema::create('agendasclients', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('iduser')->unsigned();
-            $table->integer('idreser')->unsigned();
+            $table->integer('iduser')->nullable();
+            $table->integer('idreser')->nullable();
             $table->string('fechaini')->nullable();
             $table->string('fechafin')->nullable();
             $table->string('titulo')->nullable();
@@ -24,9 +24,7 @@ class CreateAgendaClientMsTable extends Migration
             $table->string('motivo3')->nullable();
             $table->string('observaciones')->nullable();
             
-         $table->foreign('iduser')->references('id')->on('solicitante');
-         
-        $table->foreign('idreser')->references('id')->on('gerente');
+        
             $table->timestamps();
         });
     }

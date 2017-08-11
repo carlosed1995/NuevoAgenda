@@ -43,3 +43,5 @@ Route::resource('historial', 'HistorialController');
 
 Route::resource('onoff', 'ActivarController');
 
+Route::resource('buscar', 'FormulariosController');
+

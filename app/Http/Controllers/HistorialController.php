@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Gerente;
+use DB;
 
 class HistorialController extends Controller
 {

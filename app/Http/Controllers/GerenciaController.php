@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Gerente;
+use Laracasts\Flash\Flash;
 
 class GerenciaController extends Controller
 {
@@ -26,8 +27,7 @@ class GerenciaController extends Controller
     		'act'=>1,
             'actagend'=>0
     		]);
-
-
+Flash::success("Agenda creada exitosamente");
 return redirect()->back();
     }
 
@@ -43,8 +43,10 @@ return redirect()->back();
      //   $rest->sugerencias =  $request->txtsugerencia;
      
       $actualizar->save();
+      Flash::success("Agenda actualizada exitosamente");
+
       
-      return redirect()->back()->with('message', 'Actualización Exitosa');
+      return redirect()->route('gerencia.index');
 
     }
 
@@ -52,7 +54,9 @@ return redirect()->back();
     {
     $horario = Gerente::find($id);
     $horario->delete();
-    return redirect()->back();
+
+    flash('Agenda eliminada correctamente')->error();
+    return redirect()->route('gerencia.index');
 
 
     }

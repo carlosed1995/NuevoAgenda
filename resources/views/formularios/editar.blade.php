@@ -33,7 +33,7 @@
                
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> 
           <input type="hidden" name="id_usuario" value="<?= $usuario->id; ?>">              
-
+@include('flash::message')
 
         <div class="box-body ">
 

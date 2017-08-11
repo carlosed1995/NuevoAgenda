@@ -11,6 +11,7 @@ use Mail;
 use Redirect;
 use Gerente;
 use DB;
+use Laracasts\Flash\Flash;
 
 class AgendarCitaController extends Controller
 {
@@ -102,7 +103,9 @@ Mail::send('email.enviar', $data , function($msj){
     $msj->to('laravelmailprueba@gmail.com');
 });
 
-return view('home')->with("msj","Cita agendada exitosamente, por favor revise su correo electronico");
+Flash::success("Cita agendada exitosamente, por favor revise su correo electronico");
+
+return view('home');
 
     } 
 

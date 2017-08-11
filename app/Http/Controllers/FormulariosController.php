@@ -8,8 +8,8 @@ use App\Http\Requests;
 
 class FormulariosController extends Controller
 {
-    public function form_nuevo_usuario()
+    public function index()
 	{
-		return view('formularios.form_nuevo_usuario');
+		return view('solicitante.index');
 	}
 }

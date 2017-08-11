@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Gerente;
 use Mail;
 use DB;
+use Laracasts\Flash\Flash;
 
 class ConfimarController extends Controller
 {
@@ -61,6 +62,8 @@ class ConfimarController extends Controller
      $rechaza->actagend = 0;
      $rechaza->save();
 
+     flash('Agenda rechazada correctamente')->error();
+
      return redirect()->back();
     }
 
@@ -100,7 +103,7 @@ Mail::send('email.confirmarusuario', $data , function($msj) use($data){
     $msj->subject('Correo');
     $msj->to($data['email']);
 });
-    
+    Flash::success("Agenda confirmada, se le envio un correo electronico al usuario de confirmación");
 return redirect()->back();
     }
 

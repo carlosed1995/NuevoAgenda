@@ -25,6 +25,7 @@
   <div class="col-md-6">
 
         <div class="box box-primary">
+        
                         <br>
                         <br>
                         <div class="box-header">
@@ -34,6 +35,8 @@
         <div id="notificacion_resul_feu"></div>
 
         {!!Form::open(['route' => 'gerencia.store', 'method' => 'post'])!!}
+ @include('flash::message')
+
 
         <div class="box-body ">
 
@@ -82,7 +85,6 @@
  <!--ESTE ES EL OTRO FORMULARIO A DONDE SE SUBEN LAS IMAGENES AQUI EMPIEZA-->
   <div class="col-md-6">
 
-
       <div class="box box-primary">
                  
                             
@@ -97,7 +99,7 @@
     
     </thead>
     @foreach($agendas as $agen)
-  
+  @if($agen['actagend'] != 2)
 
         <td>{{$agen->fechaIni}}</td>
         <td>{{$agen->fechaFin}}</td>
@@ -189,11 +191,15 @@
     </div>
   </div>
 </div>
-
+@endif
   @endforeach
 
+
+
   </table>
- {!!$agendas->render()!!} 
+ {!!$agendas->render()!!}
+
+
         
 <br><br>
     <script type="text/javascript">

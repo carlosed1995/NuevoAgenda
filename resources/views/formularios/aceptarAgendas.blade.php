@@ -25,18 +25,19 @@
     
       <th>Confirmar Agenda</th>
     </thead>
+    @include('flash::message')
      @foreach($aceptar as $acepta)
         @if($acepta['actagend'] == 1) 
       <tbody>
         <td>{{$acepta->fechaIni}}</td>
         <td>{{$acepta->fechaFin}}</td>
         <td>{{$acepta->titulo}}</td>
-        
+          
     <div class="box-tools pull-right">
       @if($acepta['actagend'] == 1)   
     <div class="btn-group">
      <td>
-      <a href="{{route('confimar.edit', $acepta->id)}}" onclick="return confirm('Cita Confirmada le llegara al usuario un correo electronico con la confirmacion de la cita')" class="btn btn-xs btn-default">Confirmar</a></td>
+      <a href="{{route('confimar.edit', $acepta->id)}}" onclick="return confirm('Agenda Confirmada le llegara al usuario un correo electronico con la confirmacion de la cita')" class="btn btn-xs btn-default">Confirmar</a></td>
     </div>
   @else
     <div class="btn-group">

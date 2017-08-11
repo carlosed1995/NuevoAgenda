@@ -143,6 +143,10 @@
                 <!--<li class="active"><a href="" onclick="" ><i class="fa fa-circle-o"></i>Agregar usuario </a></li>-->
                 <li class="active"><a href="{{route('listar.index')}}" onclick="" ><i class="fa fa-circle-o"></i>Listado Usuarios</a></li>
               </ul>
+              <ul class="treeview-menu">
+               <!-- <li class="active"><a href="" onclick="" ><i class="fa fa-circle-o"></i>Agregar usuario </a></li>-->
+                <li class="active"><a href="{{route('buscar.index')}}" onclick="" ><i class="fa fa-circle-o"></i>Verificar Usuarios</a></li>
+              </ul>
             </li>  
 
 
@@ -198,7 +202,7 @@
           </ol>
         </section>
          <section class=""  id="princpk">
-
+@include('flash::message')
        @yield('content')
         
         </section>

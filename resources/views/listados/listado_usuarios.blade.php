@@ -44,7 +44,7 @@
 
 
 
-
+@if(count($usuarios)>0)
    @foreach($usuarios as $usuario)
 
  <tr role="row" class="odd">
@@ -60,6 +60,14 @@
 </tr>
 
 @endforeach
+@else
+<div class="alert alert-dismissable alert-warning">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4>Mensaje del sistema!</h4>
+  <p>Rut invalida por favor ingrese los datos correctos</p>
+</div>
+
+@endif
 
 
   
